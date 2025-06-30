@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 const siteConfig = {
-  name: "AI Sticker Magic",
+  name: "Sticker Magic AI",
   description: "Create stunning, custom stickers using AI. Transform your ideas into amazing stickers with our powerful AI generator featuring multiple artistic styles.",
   url: "https://sticker-magic.vercel.app",
   ogImage: "/Sticker-magic-2.jpeg",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   ],
   authors: [
     {
-      name: "AI Sticker Magic Team",
+      name: "Sticker Magic AI",
       url: siteConfig.url,
     },
   ],
@@ -134,8 +134,8 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebApplication",
-              "name": "AI Sticker Magic",
-              "description": "Create stunning, custom stickers using AI. Transform your ideas into amazing stickers with our powerful AI generator.",
+              "name": "Sticker Magic AI",
+              "description": "Create stunning, custom stickers using AI. Transform your ideas into amazing stickers with our powerful AI generator. Created by Anubhav",
               "url": "https://sticker-magic.vercel.app",
               "applicationCategory": "CreativeApplication",
               "operatingSystem": "Web Browser",
@@ -146,7 +146,7 @@ export default function RootLayout({
               },
               "creator": {
                 "@type": "Organization",
-                "name": "AI Sticker Magic Team"
+                "name": "Sticker Magic AI"
               },
               "screenshot": "/Sticker-magic-2.jpeg"
             })
