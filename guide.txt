@@ -1,0 +1,11 @@
+
+body: JSON.stringify({
+        prompt: enhancedPrompt,
+        // model: 'HiDream-ai/HiDream-I1-Full:free', // --> Not working
+        model: 'stabilityai/sdxl-turbo:free', // --> Working
+        // model: 'google/gemini-2.0-flash-exp:free', // --> working
+        // model: 'black-forest-labs/FLUX-1-schnell:free',// --> working
+      //  model: 'Chroma:free',   // --> Not working
+        n: 1,
+        size: '1024x1024',
+      }),

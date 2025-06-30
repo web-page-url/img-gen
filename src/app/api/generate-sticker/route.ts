@@ -1,11 +1,26 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const API_KEY = 'a68f9d89d31f6395ded27c9cbf991ad6503249e346692f577880ff5c8d26e948';
+// Get API key from environment variables
+const API_KEY = process.env.IMAGEROUTER_API_KEY;
 const API_URL = 'https://api.imagerouter.io/v1/openai/images/generations';
+
+// Validate API key on startup
+if (!API_KEY) {
+  console.error('❌ IMAGEROUTER_API_KEY environment variable is not set!');
+}
 
 export async function POST(request: NextRequest) {
   try {
-    const { prompt } = await request.json();
+    // Check if API key is available
+    if (!API_KEY) {
+      console.error('❌ API key not configured');
+      return NextResponse.json(
+        { success: false, error: 'API configuration error. Please check server setup.' },
+        { status: 500 }
+      );
+    }
+
+    const { prompt, model = 'stabilityai/sdxl-turbo:free' } = await request.json();
 
     if (!prompt) {
       return NextResponse.json(
@@ -25,7 +40,7 @@ export async function POST(request: NextRequest) {
       },
       body: JSON.stringify({
         prompt: enhancedPrompt,
-        model: 'HiDream-ai/HiDream-I1-Full:free',
+        model: model, // Dynamic model selection
         n: 1,
         size: '1024x1024',
       }),

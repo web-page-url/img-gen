@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { LoadingOverlay } from './LoadingOverlay';
 import { StickerCard } from './StickerCard';
 import { Toast } from './Toast';
+import { ModelSelector } from './ModelSelector';
 
 interface GeneratedSticker {
   url: string;
@@ -16,6 +17,7 @@ export function StickerGenerator() {
   const [isLoading, setIsLoading] = useState(false);
   const [generatedStickers, setGeneratedStickers] = useState<GeneratedSticker[]>([]);
   const [selectedStyle, setSelectedStyle] = useState('cute');
+  const [selectedModel, setSelectedModel] = useState('stabilityai/sdxl-turbo:free');
   const [toast, setToast] = useState<{
     message: string;
     type: 'success' | 'error' | 'info';
@@ -66,6 +68,7 @@ export function StickerGenerator() {
         },
         body: JSON.stringify({
           prompt: `${selectedStyle} style sticker: ${prompt}`,
+          model: selectedModel,
         }),
       });
 
@@ -171,6 +174,12 @@ export function StickerGenerator() {
             Describe your idea and watch AI bring it to life!
           </p>
         </div>
+
+        {/* Model Selection */}
+        <ModelSelector
+          selectedModel={selectedModel}
+          onModelSelect={setSelectedModel}
+        />
 
         {/* Style Selection */}
         <div className="mb-8">
