@@ -51,25 +51,6 @@ export function ModelSelector({ selectedModel, onModelSelect }: ModelSelectorPro
       isWorking: true,
       speed: 'Medium',
       quality: 'Excellent'
-    },
-    {
-      id: 'HiDream-ai/HiDream-I1-Full:free',
-      name: 'HiDream AI',
-      description: 'Advanced AI model for stunning visuals',
-      icon: '✨',
-      badge: 'PREMIUM',
-      isWorking: false,
-      speed: 'Slow',
-      quality: 'Excellent'
-    },
-    {
-      id: 'Chroma:free',
-      name: 'Chroma',
-      description: 'Vibrant color-focused generation',
-      icon: '🌈',
-      isWorking: false,
-      speed: 'Medium',
-      quality: 'Good'
     }
   ];
 

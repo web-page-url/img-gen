@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://sticker-magic.vercel.app/sitemap.xml
+
+# Important pages
+Allow: /
+Allow: /api/generate-sticker
+
+# Block unnecessary files
+Disallow: /_next/
+Disallow: /api/
+Disallow: /.env*
+Disallow: /scripts/
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1 
